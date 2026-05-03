@@ -5,8 +5,8 @@ let boolTruFalse = true; //BOOLEAN (True, False)
 let num;
 let numNull = null;
 
-//console.log(num);
-//console.log(fullNam + " $ " + clasName + " $ " + currentYear);
+// console.log(num);
+// console.log(fullNam + " $ " + clasName + " $ " + currentYear);
 
 //..........................................................
 //syntax sTring
