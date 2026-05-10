@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #4e73df, #1e3a8a);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .form-container {
+        background: white;
+        width: 100%;
+        max-width: 420px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .header {
+        background: #2563eb;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .form-content {
+        padding: 30px 25px;
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+        font-size: 14px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+      }
+
+      /* Gender Buttons */
+      .gender-buttons {
+        display: flex;
+        gap: 12px;
+      }
+
+      .gender-btn {
+        flex: 1;
+        padding: 12px;
+        text-align: center;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        background: white;
+      }
+
+      .gender-btn.active {
+        background: #2563eb;
+        color: white;
+        border-color: #2563eb;
+      }
+
+      button.register-btn {
+        width: 100%;
+        padding: 14px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+      button.register-btn:hover {
+        background: #1e40af;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="header">REGISTRATION FORM</div>
+
+      <div class="form-content">
+        <form>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Nhập họ và tên" required />
+          </div>
+
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" placeholder="Tên đăng nhập" required />
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="example@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="0123456789" required />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Mật khẩu" required />
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="Nhập lại mật khẩu" required />
+          </div>
+
+          <div class="form-group">
+            <label>Gender</label>
+            <div class="gender-buttons">
+              <div class="gender-btn active" data-gender="male">Male</div>
+              <div class="gender-btn" data-gender="female">Female</div>
+            </div>
+            <input type="hidden" id="selected-gender" value="male" />
+          </div>
+
+          <button type="submit" class="register-btn">REGISTER NOW</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Xử lý click gender button
+      const buttons = document.querySelectorAll(".gender-btn");
+      const hiddenInput = document.getElementById("selected-gender");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          hiddenInput.value = btn.dataset.gender;
+        });
+      });
+    </script>
+  </body>
+</html>
